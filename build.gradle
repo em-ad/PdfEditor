@@ -3,9 +3,11 @@ buildscript {
     ext.kotlin_version = '1.4.30-M1'
 
     repositories {
-        google()
         jcenter()
         maven { url "https://jitpack.io" }
+        google()
+        maven { url 'https://maven.google.com' }
+        mavenCentral()
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 
@@ -21,10 +23,11 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
         jcenter()
-        mavenCentral()
         maven { url "https://jitpack.io" }
+        mavenCentral()
+        google()
+        maven { url 'https://maven.google.com' }
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
