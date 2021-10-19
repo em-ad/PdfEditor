@@ -54,4 +54,23 @@ public class MagicalPdfConverterViewModel extends AndroidViewModel {
         });
     }
 
+    public void convertImageToPdf(String savePdfDestination, String imagePath) {
+        pdfConverterStatus.postValue(PdfConverterStatusEnum.PROCESSING);
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                // Code here will run in UI thread
+                try {
+                    MagicalPdfConverter.getInstance().convertImageIntoPDF(getApplication(), savePdfDestination, imagePath);
+                    pdfConverterStatus.postValue(PdfConverterStatusEnum.SUCCESS);
+                    savePdfDestinationLiveData.postValue(savePdfDestination);
+                } catch (MagicalException e) {
+                    pdfConverterStatus.postValue(PdfConverterStatusEnum.FAILED);
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 }
