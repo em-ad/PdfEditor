@@ -1,5 +1,5 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
-[![](https://jitpack.io/v/HamidrezaAmz/MagicalPdfEditor.svg)](https://jitpack.io/#HamidrezaAmz/MagicalPdfEditor)
+[![](https://jitpack.io/v/HamidrezaAmz/MagicalPdfEditor.svg)](https://jitpack.io/#em-ad/PdfEditor)
 
 # MagicalPdfEditor
 This is a small PDF editor based on [OpenPDF Core](https://github.com/HamidrezaAmz/OpenPDF) and [AndroidPdfViewer](https://github.com/HamidrezaAmz/MagicalPdfViewer).
