@@ -24,6 +24,8 @@ import ir.vasl.magicalpec.viewModel.MagicalPdfConverterViewModel;
 
 import static ir.vasl.magicalpdfeditor.Utils.PublicFunction.showAlerter;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
+
 public class PdfToImageActivity
         extends BaseActivity
         implements View.OnClickListener {
@@ -88,15 +90,27 @@ public class PdfToImageActivity
     public void onClick(View v) {
         if (v.getId() == R.id.button_choose_image) {
             launchImagePicker();
+//            launchCamera();
         } else if (v.getId() == R.id.button_convert_image_to_pdf) {
             convertImageToPDF();
         }
+    }
+
+    private void launchCamera() {
+        ImagePicker.Companion.with(this)
+                .cameraOnly()
+                .start(313);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == PublicValue.KEY_REQUEST_FILE_PICKER) {
+            if (data != null && data.getData() != null) {
+                this.currUri = data.getData();
+                ((TextView) findViewById(R.id.textView_choose_image)).setText(currUri.getPath());
+            }
+        } else if (resultCode == RESULT_OK && requestCode == 313) {
             if (data != null && data.getData() != null) {
                 this.currUri = data.getData();
                 ((TextView) findViewById(R.id.textView_choose_image)).setText(currUri.getPath());

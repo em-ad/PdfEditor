@@ -1,15 +1,19 @@
 package ir.vasl.magicalpec.utils.Core;
 
+import static com.lowagie.text.Element.IMGTEMPLATE;
+
 import android.content.Context;
 import android.net.Uri;
 
-import com.lowagie.text.Document;
 import com.lowagie.text.Image;
+import com.lowagie.text.pdf.PdfICCBased;
+import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
 
+import ir.vasl.magicalpec.model.Document;
 import ir.vasl.magicalpec.utils.Exceptions.MagicalException;
 import ir.vasl.magicalpec.utils.PathUtil;
 
@@ -51,6 +55,8 @@ public class MagicalPdfConverter {
             image.scalePercent(scaler);
             image.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_TOP);
 
+            image.setOriginalType(IMGTEMPLATE);
+
             document.add(image);
             document.close();
             return savePdfDestination;
@@ -81,10 +87,13 @@ public class MagicalPdfConverter {
             document.open();
             Image image = Image.getInstance(imagePath);
 
+//            PdfICCBased icc = new PdfICCBased(image.getICCProfile(), image.getCompressionLevel());
+
             float scaler = ((document.getPageSize().getWidth() - document.leftMargin()
                     - document.rightMargin() - 0) / image.getWidth()) * 100; // 0 means you have no indentation. If you have any, change it.
             image.scalePercent(scaler);
             image.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_TOP);
+
 
             document.add(image);
             document.close();
