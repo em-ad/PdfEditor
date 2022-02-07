@@ -8,7 +8,8 @@ buildscript {
         google()
         maven { url 'https://maven.google.com' }
         mavenCentral()
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url "http://maven.andob.info/repository/open_source" }
+//        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 
     dependencies {
@@ -28,7 +29,8 @@ allprojects {
         mavenCentral()
         google()
         maven { url 'https://maven.google.com' }
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url "http://maven.andob.info/repository/open_source" }
+//        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
 
